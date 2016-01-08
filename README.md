@@ -28,7 +28,7 @@ composer require --prefer-dist thrieu/yii2-grid-view-state "dev-master"
 
 ## Usage
 ### Step 1
-Extend GridView class, simply implement FilterStateInterface and FilterStateTrait.
+Extend GridView class, simply implement FilterStateInterface and FilterStateTrait, and attach the filter behavior to your GridView widget.
 ```php
 namespace \app\widgets;
 
@@ -37,18 +37,16 @@ use thrieu\grid\FilterStateTrait;
 
 class GridView extends \yii\grid\GridView implements FilterStateInterface {
     use FilterStateTrait;
+    
+    public function behaviors() {
+        return [
+            'as filterBehavior' => \thrieu\grid\FilterStateBehavior::className()
+        ];
+    }
 }
 ```
+
 ### Step 2
-Attach the filter behavior to your GridView widget.
-```php
-GridView::widget([
-...
-    'as filterBehavior' => \thrieu\grid\FilterStateBehavior::className(),
-...
-]);
-```
-### Step 3
 Get the params which merging the GridView state params with GET query params and set it to the filter model and the DataProvider.
 ```php
 // Filter model
