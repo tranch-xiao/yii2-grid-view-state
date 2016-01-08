@@ -6,6 +6,26 @@ Save filters from GridView to session, keep the filter state between pages.
 2. Setting via behavior.
 3. Determines the uniqueness by the action route and a customizable ID.
 
+## Installation
+Add this repository to your `composer.json`
+
+```json
+{
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/thrieu/yii2-grid-view-state.git"
+        }
+    ]
+}
+```
+
+Then run
+
+```
+composer require --prefer-dist thrieu/yii2-grid-view-state "dev-master"
+```
+
 ## Usage
 ### Step 1
 Extend GridView class, simply implement FilterStateInterface and FilterStateTrait.
