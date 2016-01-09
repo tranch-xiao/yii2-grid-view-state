@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "thrieu\\grid\\": ""
+      "thrieu\\grid\\": "src"
     }
   }
 }
